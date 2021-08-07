@@ -1,3 +1,3 @@
 # C
  
-Algumas aula e testes que fiz depois de perder tudo que tinha de C.
+Algumas aulas e testes que fiz em C.
