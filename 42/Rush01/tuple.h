@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 13:59:32 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/08/27 17:21:20 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:16:41 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,18 @@ struct	s_tuple
 	int	n4;
 };
 
+struct s_case
+{
+	int				*line;
+	struct s_case	*next;
+};
+
 struct	s_perm
 {
-	int	size;
-	int	count;
-	int	**list;
+	int				size;
+	int				count;
+	struct s_case	*first;
+	struct s_case	*last;
 };
 
 struct s_perm	*create_perm(int size);
@@ -36,6 +43,6 @@ int				*get_value_tuple(struct s_perm *list, int index);
 
 int				compare(int *line1, int *line2, int size);
 
-void			add_value(struct s_perm *list, char *value);
+void			add_value(struct s_perm *list, int *value);
 
 #endif

@@ -6,22 +6,22 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 17:47:34 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/08/27 18:24:28 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:14:16 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tuple.h"
 
-void	swap(char *x, char *y)
+void	swap(int *x, int *y)
 {
-	char	temp;
+	int	temp;
 
 	temp = *x;
 	*x = *y;
 	*y = temp;
 }
 
-void	permute(char *a, int l, int r, struct s_perm *list)
+void	permute(int *a, int l, int r, struct s_perm *list)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:05:28 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/08/27 18:30:15 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:01:52 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ int main(int argv, char **argc) {
     int tamanho = 5;
 
     struct s_perm   *permutations = create_perm(tamanho);
-    char *numbers = (char *) malloc(sizeof(char) * tamanho);
+    int *numbers = (int *) malloc(sizeof(int) * tamanho);
     for (int i = 0; i < tamanho; i++)
-        numbers[i] = i + 1 + '0';
+        numbers[i] = i + 1;
     permute(numbers, 0, tamanho - 1, permutations);
     free(numbers);
 
     int *ret;
-    for (int i = 0; i < permutations->count; i++) {
-        ret = get_value_tuple(permutations, i);
-        for (int size = 0; size < permutations->size; size++)
-            printf("%d ", permutations->list[i][size]);
-        printf("\n");
-    }
+    // for (int i = 0; i < permutations->count; i++) {
+    //     ret = get_value_tuple(permutations, i);
+    //     for (int size = 0; size < permutations->size; size++)
+    //         printf("%d ", permutations->list[i][size]);
+    //     printf("\n");
+    // }
 
     delete(permutations);
     return 0;
