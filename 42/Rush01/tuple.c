@@ -15,15 +15,18 @@
 
 struct s_perm	*create_perm(int size)
 {
-	int					size_perm;
-	struct s_tuple		*list;
-	struct s_perm		*perm;
+	int				size_line;
+	int				size_perm;
+	int				**list;
+	struct s_perm	*perm;
 
+	size_line = size;
 	size_perm = size;
 	while (--size > 0)
 		size_perm *= size;
 	perm = (struct s_perm *) malloc(sizeof(struct s_perm));
-	list = (struct s_tuple *) malloc(sizeof(struct s_tuple) * size_perm);
+	list = (int **) malloc(sizeof(int *) * size_perm);
+	perm->size = size_line;
 	perm->count = 0;
 	perm->list = list;
 	return (perm);
@@ -31,33 +34,51 @@ struct s_perm	*create_perm(int size)
 
 void	delete(struct s_perm *list)
 {
-	free(list->list);
+	int	i;
+
+	i = list->count;
+	while (i > 0)
+	{
+		free(list->list[i - 1]);
+		i--;
+	}
 	free(list);
 }
 
-struct s_tuple	get_value_tuple(struct s_perm *list, int index)
+int	*get_value_tuple(struct s_perm *list, int index)
 {
-	struct s_tuple	item;
-	struct s_tuple	*tuple_list;
+	int	*item;
 
-	tuple_list = list->list;
-	item = tuple_list[index];
+	item = list->list[index];
 	return (item);
 }
 
-int	compare(struct s_tuple tuple1, struct s_tuple tuple2)
+int	compare(int *line1, int *line2, int size)
 {
-	if (tuple1.n1 == tuple2.n1 && tuple1.n2 == tuple2.n2
-		&& tuple1.n3 == tuple2.n3 && tuple1.n4 == tuple2.n4)
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (line1[i] != line2[i])
+			return (0);
+		i++;
+	}
+	return (1);	
 }
 
-void	add_value(struct s_perm *list, struct s_tuple value)
+void	add_value(struct s_perm *list, char *value)
 {
-	struct s_tuple	*tuple_list;
+	int	*line;
+	int i;
 
-	tuple_list = list->list;
-	tuple_list[list->count] = value;
+	i = 0;
+	line = (int *) malloc(sizeof(int) * list->size);
+	while (i < list->size)
+	{
+		line[i] = value[i] - '0';
+		i++;
+	}
+	list->list[list->count] = line;
 	list->count++;
 }

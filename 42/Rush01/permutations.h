@@ -13,10 +13,10 @@
 #ifndef PERMUTATIONS_H
 # define PERMUTATIONS_H
 
-struct s_tuple	covert_str_to_tuple(char *s);
+int	    *covert_to_array(char *s);
 
-void			swap(char *x, char *y);
+void	swap(char *x, char *y);
 
-void			permute(char *a, int l, int r, struct s_perm *list);
+void	permute(char *a, int l, int r, struct s_perm *list);
 
 #endif

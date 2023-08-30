@@ -23,18 +23,19 @@ struct	s_tuple
 
 struct	s_perm
 {
-	int				count;
-	struct s_tuple	*list;
+	int	size;
+	int	count;
+	int	**list;
 };
 
 struct s_perm	*create_perm(int size);
 
 void			delete(struct s_perm *list);
 
-struct s_tuple	get_value_tuple(struct s_perm *list, int index);
+int				*get_value_tuple(struct s_perm *list, int index);
 
-int				compare(struct s_tuple tuple1, struct s_tuple tuple2);
+int				compare(int *line1, int *line2, int size);
 
-void			add_value(struct s_perm *list, struct s_tuple value);
+void			add_value(struct s_perm *list, char *value);
 
 #endif

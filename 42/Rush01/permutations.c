@@ -12,17 +12,6 @@
 
 #include "tuple.h"
 
-struct s_tuple	covert_str_to_tuple(char *s)
-{
-	struct s_tuple	lin;
-
-	lin.n1 = s[0] - '0';
-	lin.n2 = s[1] - '0';
-	lin.n3 = s[2] - '0';
-	lin.n4 = s[3] - '0';
-	return (lin);
-}
-
 void	swap(char *x, char *y)
 {
 	char	temp;
@@ -38,7 +27,7 @@ void	permute(char *a, int l, int r, struct s_perm *list)
 
 	if (l == r)
 	{
-		add_value(list, covert_str_to_tuple(a));
+		add_value(list, a);
 	}
 	else
 	{
