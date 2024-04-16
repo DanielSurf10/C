@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Estrutura de dados para o cadastro de alunos
 typedef struct cadastro
 {
 	int		ID;
@@ -12,6 +13,7 @@ typedef struct cadastro
 	float	media;
 }	cadastro;
 
+// Funções
 cadastro	*criar_alunos(int n);
 void		modificar_nota(cadastro *aluno, int n, int ID, int P);
 void		calcular_media(cadastro *aluno, int ID);

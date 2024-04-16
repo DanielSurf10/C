@@ -1,5 +1,11 @@
 #include "nota_aluno.h"
 
+/**
+ * Função que aloca um vetor de alunos
+ *
+ * @param n Número de alunos
+ * @return cadastro* Ponteiro para o vetor de alunos alocado
+ */
 cadastro	*criar_alunos(int n)
 {
 	int			i;
@@ -15,6 +21,14 @@ cadastro	*criar_alunos(int n)
 	return (aluno);
 }
 
+/**
+ * Função que modifica a nota de um aluno
+ *
+ * @param aluno Vetor de alunos
+ * @param n Nova nota
+ * @param ID ID do aluno
+ * @param P Prova
+ */
 void	modificar_nota(cadastro *aluno, int n, int ID, int P)
 {
 	if (P == 1)
@@ -23,6 +37,12 @@ void	modificar_nota(cadastro *aluno, int n, int ID, int P)
 		aluno[ID - 1].nota_P2 = n;
 }
 
+/**
+ * Função que calcula a média de um aluno
+ *
+ * @param aluno Vetor de alunos
+ * @param ID ID do aluno
+ */
 void	calcular_media(cadastro *aluno, int ID)
 {
 	float	media;
@@ -31,6 +51,12 @@ void	calcular_media(cadastro *aluno, int ID)
 	aluno[ID - 1].media = media;
 }
 
+/**
+ * Função que imprime o aluno com a maior média
+ *
+ * @param aluno Vetor de alunos
+ * @param n Número de alunos
+ */
 void	maior_media(cadastro *aluno, int n)
 {
 	int			i;
